@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ice Cream</title>
     <link rel="stylesheet" href="styles/styles.css">
+    <script src = "js/ice-cream.js" defer></script>
 
     <!-- Favicon -->
     <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoKHnXPENvCGbSh39wRXLH3ZS24CSY1w32TA&s">
@@ -18,14 +19,19 @@
             <legend>Personal Information</legend>
                 <label for="name">First Name:</label><br>
                 <input type="text" id="fname" name="fname">
+                <span id="err-fname" class="error">First name cant be empty!</span>
                 <br>
-                <label for="email">Email:</label><br>
+                <label for="email">Email:</label>
+                <span id="err-email" class="error">Email cant be empty!</span>
+                <br>
                 <input type="text" id="email" name="email">
         </fieldset>
 
         <fieldset>
             <legend> Order Details</legend>
+            <span id="err-flavor" class="error">Email cant be empty!</span>
             <select id ="icecreamflavor" name="Flavor">
+                <option value="none"> Select FLavor</option>
                 <option value="vanillaflavor"> Vanilla</option>
                 <option value="chocolateflavor"> Chocolate</option>
                 <option value="oreoflavor"> Oreo</option>
@@ -33,6 +39,7 @@
             </select>
 
             <legend> Choose your cone</legend>
+            <span id="err-method" class="error">Cone cant be empty!</span>
             <label for ="waffleCone" >
                 <input type ="radio" id ="waffle" name = "method" value = "waffle"> waffleCone
                 </label>   
