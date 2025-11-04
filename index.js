@@ -15,6 +15,7 @@ const orders=[];
 // for ejs
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true}));
+app.use(express.static('views'));
 
 //Define a default "route" ('/')
 //req: contains information about the incoming request
