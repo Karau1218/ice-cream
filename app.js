@@ -31,15 +31,17 @@ app.listen(PORT, () => {
 })
 
 app.post('/submit-order', (req, res) => {
-    const order = req.body;
-    order.timestamp = new Date();
-
-    orders.push(order);
-    console.log(orders);
-
-    res.render('confirmation', {order});
-
+  const order = {
+    fname: req.body.fname,
+    email: req.body.email,
+    Flavor: req.body.Flavor,
+    method: req.body.method,
+    toppings: req.body.toppings,
+    comment: req.body.comment
+  };
+  res.render('confirmation', { order });
 });
+
 
 app.get('/home', (req, res) => {
     res.render('home', {orders});

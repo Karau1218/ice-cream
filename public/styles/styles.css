@@ -55,5 +55,185 @@ img {
     display: none;
 }
 
+/* for confirmation page styling */
+body.conf-page {
+    background-color: #E6E0F8; /* The soft purple color */
+    margin: 0; 
+    padding: 0;
+    min-height: 100vh;
+}
+
+
+.confirmation-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.checkmark-circle {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background-color: #4CAF50; /* Green background */
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.checkmark {
+    width: 100%;
+    height: 100%;
+    stroke: white;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+    display: block;
+}
+
+.checkmark-check {
+    transform-origin: 50% 50%;
+    animation: check-animation 0.5s ease-in-out forwards;
+}
+
+@keyframes check-animation {
+    0% {
+        stroke-dashoffset: 50;
+        opacity: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+}
+
+.thank-you-header {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.confirmation-subtext {
+    font-size: 1em;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.order-summary-box {
+    text-align: left;
+    padding: 15px;
+    background-color: #f9f9f9; /* Light background for the details box */
+    border-radius: 5px;
+    border: 1px solid #eee;
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 0.8em;
+    color: #4CAF50; /* Green text for titles */
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.detail-row:last-of-type {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.detail-value {
+    color: #333;
+}
+
+.toppings-list {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.topping-tag {
+    background-color: #7986CB; /* Blue color for toppings */
+    color: white;
+    padding: 3px 8px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+
+.comments-box {
+    min-height: 50px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: #333;
+    font-style: italic;
+    background-color: white;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.print-button {
+    /* Style to match the light-blue/purple button in the image */
+    background-color: #7986CB; /* A soft purple/blue */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-grow: 1;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+}
+
+.place-another-button {
+    /* Style to match the green button in the image */
+    background-color: #4CAF50; /* Primary green */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    flex-grow: 1;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1em;
+    /* Overrides the global button style */
+    width: auto; 
+    display: block;
+}
+
+/* Cleanup for the confirmation page buttons to not inherit the form button styles poorly */
+.confirmation-container button, .confirmation-container a[role="button"] {
+    margin: 0;
+    width: auto;
+    display: block;
+}
+
+.order-summary-box hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 15px 0;
+}
 
 
