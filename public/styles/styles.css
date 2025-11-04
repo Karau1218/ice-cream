@@ -57,7 +57,7 @@ img {
 
 /* for confirmation page styling */
 body.conf-page {
-    background-color: #E6E0F8; /* The soft purple color */
+    background-color: #7986CB; /* The soft purple color */
     margin: 0; 
     padding: 0;
     min-height: 100vh;
@@ -69,8 +69,7 @@ body.conf-page {
     margin: 50px auto;
     padding: 30px;
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;    
     text-align: center;
 }
 
@@ -100,16 +99,7 @@ body.conf-page {
     animation: check-animation 0.5s ease-in-out forwards;
 }
 
-@keyframes check-animation {
-    0% {
-        stroke-dashoffset: 50;
-        opacity: 0;
-    }
-    100% {
-        stroke-dashoffset: 0;
-        opacity: 1;
-    }
-}
+
 
 .thank-you-header {
     font-size: 1.8em;
@@ -193,10 +183,10 @@ body.conf-page {
 
 .print-button {
     /* Style to match the light-blue/purple button in the image */
-    background-color: #7986CB; /* A soft purple/blue */
-    color: white;
+    background-color: white; 
+    color: #7986CB;/* A soft purple/blue */
     padding: 10px 20px;
-    border: none;
+    border: 2px solid #7986CB; /* Border to match the text color */
     border-radius: 5px;
     cursor: pointer;
     flex-grow: 1;
