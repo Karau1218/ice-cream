@@ -143,11 +143,11 @@ body.conf-page {
 
 .detail-label {
     font-weight: bold;
-    color: #555;
+    color: black;
 }
 
 .detail-value {
-    color: #333;
+    color: black;
 }
 
 .toppings-list {
@@ -157,7 +157,7 @@ body.conf-page {
 }
 
 .topping-tag {
-    background-color: #7986CB; /* Blue color for toppings */
+    background-color: #7986CB; /* color for toppings */
     color: white;
     padding: 3px 8px;
     border-radius: 15px;
@@ -167,10 +167,10 @@ body.conf-page {
 .comments-box {
     min-height: 50px;
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid black;
     border-radius: 5px;
     margin-top: 10px;
-    color: #333;
+    color: black;
     font-style: italic;
     background-color: white;
 }
@@ -182,7 +182,7 @@ body.conf-page {
 }
 
 .print-button {
-    /* Style to match the light-blue/purple button in the image */
+    
     background-color: white; 
     color: #7986CB;/* A soft purple/blue */
     padding: 10px 20px;
@@ -196,8 +196,7 @@ body.conf-page {
 }
 
 .place-another-button {
-    /* Style to match the green button in the image */
-    background-color: #4CAF50; /* Primary green */
+    background-color: #4CAF50; /*  green color for submit button */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -207,12 +206,10 @@ body.conf-page {
     text-decoration: none;
     text-align: center;
     font-size: 1em;
-    /* Overrides the global button style */
-    width: auto; 
-    display: block;
+   
 }
 
-/* Cleanup for the confirmation page buttons to not inherit the form button styles poorly */
+
 .confirmation-container button, .confirmation-container a[role="button"] {
     margin: 0;
     width: auto;
