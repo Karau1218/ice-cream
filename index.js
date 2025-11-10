@@ -39,6 +39,8 @@ app.post('/submit-order', (req, res) => {
     toppings: req.body.toppings,
     comment: req.body.comment
   };
+
+   orders.push(order); // so the orders can be seen
   res.render('confirmation', { order });
 });
 
