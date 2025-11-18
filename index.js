@@ -1,4 +1,18 @@
 import express from 'express';
+import mysql2 from 'mysql2'; // import for mysql
+import dotenv from 'dotenv';
+
+// Load the variables from the .env file
+dotenv.config();
+
+const pool = mysql2.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
+}).promise();
+
 
 //create an instance of an express application
 const app = express();
@@ -15,6 +29,17 @@ const orders=[];
 // for ejs
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true}));
+
+//Define a root to test the DataBase
+app.get('/db-test', async(req, res) => {
+    try {
+        const [orders] = await pool.query('SELECT * FROM orders');
+        res.send(orders);
+    } catch(err) {
+        console.error('Database error:', err);
+    }
+});
+
 
 //Define a default "route" ('/')
 //req: contains information about the incoming request
