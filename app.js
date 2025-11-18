@@ -41,6 +41,8 @@ app.get('/db-test', async(req, res) => {
 });
 
 
+
+
 //Define a default "route" ('/')
 //req: contains information about the incoming request
 //res: allows us to send back a response to the client
@@ -55,26 +57,44 @@ app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
 })
 
-app.post('/submit-order', (req, res) => {
-  const order = {
-    fname: req.body.fname,
-    email: req.body.email,
-    Flavor: req.body.Flavor,
-    method: req.body.method,
-    toppings: req.body.toppings,
-    comment: req.body.comment
-  };
-
-   orders.push(order); // so the orders can be seen
-  res.render('confirmation', { order });
-});
-
-
 app.get('/home', (req, res) => {
     res.render('home', {orders});
 
 });
-app.get('/admin', (req, res) => {
-    res.render('admin', {orders});
+app.get('/admin', async(req, res) => {
+    try {
+        const [orders] = await pool.query('SELECT * FROM orders ORDER BY timestamp DESC');
+        res.render('admin', { orders });
+    } catch(err) {
+        console.error('Database error:', err);
+        res.status(500).send('Error loading orders: ' + err.message);
+    }
+});
 
+app.post('/submit-order', async (req, res) => {
+    try {
+        const order = req.body;
+        console.log('New order submitted:', order);
+
+        order.toppings = Array.isArray(order.toppings) ? order.toppings.join(", ") : "";
+
+        const sql = `INSERT INTO orders(customer, email, flavor, cone, toppings) 
+        VALUES (?, ?, ?, ?, ?);`;
+
+        const params = [
+            order.fname,
+            order.email,
+            order.Flavor,
+            order.method,
+            order.toppings
+        ];
+
+        const [result] = await pool.execute(sql, params);
+        console.log('Order saved with ID:', result.insertId);
+
+        res.render('confirmation', { order });
+    } catch (err) {
+        console.error('Error saving order:', err);
+        res.status(500).send('Sorry, there was an error processing your order. Please try again.');
+    }
 });
