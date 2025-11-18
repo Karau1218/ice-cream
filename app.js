@@ -23,9 +23,6 @@ app.use(express.static('public'));
 //Define the port number where our server will listen 
 const PORT = 3001;
 
-
-const orders=[];
-
 // for ejs
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: true}));
